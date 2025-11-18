@@ -95,6 +95,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "ProductManagement.AdminBackend.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ProductManagement.AdminBackend.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductManagement.AdminBackend.Core.dll": {}
+        }
       }
     }
   },
@@ -526,11 +536,17 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "ProductManagement.AdminBackend.Core/1.0.0": {
+      "type": "project",
+      "path": "../ProductManagement.AdminBackend.Core/ProductManagement.AdminBackend.Core.csproj",
+      "msbuildProject": "../ProductManagement.AdminBackend.Core/ProductManagement.AdminBackend.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.22.1",
+      "ProductManagement.AdminBackend.Core >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -565,7 +581,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\bonol\\Desktop\\9-5\\Work\\Product-Management-Admin-Backend\\ProductManagementAdminBackend\\ProductManagement.AdminBackend.Core\\ProductManagement.AdminBackend.Core.csproj": {
+              "projectPath": "C:\\Users\\bonol\\Desktop\\9-5\\Work\\Product-Management-Admin-Backend\\ProductManagementAdminBackend\\ProductManagement.AdminBackend.Core\\ProductManagement.AdminBackend.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProductManagement.AdminBackend.Core\ProductManagement.AdminBackend.Core.csproj" />
+  </ItemGroup>
+
 </Project>
