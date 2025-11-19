@@ -1,0 +1,40 @@
+# Visual Studio cache
+.vs/
+
+# Build outputs
+bin/
+obj/
+
+# User-specific settings
+*.user
+*.suo
+
+# Logs
+logs/
+*.log
+
+# ASP.NET Core settings
+appsettings.Development.json
+
+# Publish output
+publish/
+
+# NuGet
+*.nupkg
+packages/
+
+# Resharper / Rider
+_ReSharper*/
+*.DotSettings.user
+
+# Node (if you ever add frontend)
+node_modules/
+
+# Database files
+*.db
+*.mdf
+*.ldf
+
+# Temporary files
+*.tmp
+*.temp
