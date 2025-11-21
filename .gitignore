@@ -16,6 +16,7 @@ logs/
 # ASP.NET Core settings
 appsettings.Development.json
 
+
 # Publish output
 publish/
 
