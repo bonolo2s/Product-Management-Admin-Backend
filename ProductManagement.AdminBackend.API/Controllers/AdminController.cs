@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProductManagement.AdminBackend.Core.DTOs;
 using ProductManagement.AdminBackend.Core.Interfaces;
+using ProductManagement.AdminBackend.Core.Services;
 
 namespace ProductManagement.AdminBackend.API.Controllers
 {
@@ -47,9 +49,13 @@ namespace ProductManagement.AdminBackend.API.Controllers
             return result ? Ok() : NotFound();
         }
 
+        [Authorize]
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto dto)
-            => Ok(await _service.LoginAsync(dto));
+        {
+            var result = await _service.LoginAsync(dto);
+            return Ok(result);
+        }
 
         private Guid GetCurrentUserId()
         {
