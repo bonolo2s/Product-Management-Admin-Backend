@@ -17,24 +17,37 @@ namespace ProductManagement.AdminBackend.API.Controllers
             _service = service;
         }
 
-        [HttpPost("create")]
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDto dto)
+        {
+            var result = await _service.LoginAsync(dto);
+            return Ok(result);
+        }
+
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpPost("create-admin")]
         public async Task<IActionResult> Create([FromBody] CreateAdminDto dto)
         {
             var admin = await _service.CreateAdminAsync(dto, GetCurrentUserId());
             return Ok(admin);
         }
 
-        [HttpGet("{id}")]
+
+        [Authorize]
+        [HttpGet("get-admin/{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
             var admin = await _service.GetAdminByIdAsync(id);
             return admin == null ? NotFound() : Ok(admin);
         }
 
-        [HttpGet]
+
+        [Authorize]
+        [HttpGet("get-all-admins")]
         public async Task<IActionResult> GetAll()
             => Ok(await _service.GetAllAdminsAsync());
-
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateAdminDto dto)
         {
@@ -42,20 +55,14 @@ namespace ProductManagement.AdminBackend.API.Controllers
             return Ok(admin);
         }
 
-        [HttpDelete("{id}")]
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpDelete("disable-admin/{id}")]
         public async Task<IActionResult> Disable(Guid id)
         {
             var result = await _service.DisableAdminAsync(id, GetCurrentUserId());
             return result ? Ok() : NotFound();
         }
 
-        [Authorize]
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginDto dto)
-        {
-            var result = await _service.LoginAsync(dto);
-            return Ok(result);
-        }
 
         private Guid GetCurrentUserId()
         {
