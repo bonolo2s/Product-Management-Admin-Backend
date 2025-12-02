@@ -12,7 +12,8 @@
         OrderCreated,
         LoginSuccess,
         LoginFailed,
-        PaymentUpdated
+        PaymentUpdated,
+        OrderStatusChanged
     }
 }
 

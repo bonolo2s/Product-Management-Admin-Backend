@@ -34,7 +34,7 @@ namespace ProductManagement.AdminBackend.Core.Services
                 Id = Guid.NewGuid(),
                 FullName = dto.FullName,
                 Email = dto.Email,
-                Role = AdminRole.Admin.ToString(),
+                adminRole = AdminRole.Admin,
                 PasswordHash = _passwordHasher.Hash(dto.Password)
             };
 

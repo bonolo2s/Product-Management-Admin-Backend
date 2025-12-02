@@ -12,5 +12,7 @@ namespace ProductManagement.AdminBackend.Infrastructure.Data
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Order> Orders => Set<Order>();
         public DbSet<Customer> Customers => Set<Customer>();
+        public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+
     }
 }
